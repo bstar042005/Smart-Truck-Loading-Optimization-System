@@ -165,25 +165,33 @@
       </div>
 
       <!-- Dealer Login -->
-      <div class="login-card">
-        <h2>Dealer Login</h2>
-        <form>
-          <div class="form-group">
-            <label for="dealer-id">Dealer ID</label>
-            <input type="text" id="dealer-id" placeholder="Enter dealer ID" required />
-          </div>
-          <div class="form-group">
-            <label for="dealer-password">Password</label>
-            <input type="password" id="dealer-password" placeholder="Enter password" required />
-          </div>
-          <button type="submit" class="login-btn">Login as Dealer</button>
-        </form>
-        <div class="role-info">Manage products & sales</div>
-        <button 
-        class="create-btn" 
-        onclick="window.location.href='dealer-register.html'">
-        Create Dealer Account
-</button>
+<div class="login-card">
+  <h2>Dealer Login</h2>
+
+  <form action="dealer-dashboard.html" method="GET">
+    <div class="form-group">
+      <label for="dealer-id">Dealer ID</label>
+      <input type="text" id="dealer-id" placeholder="Enter dealer ID" required />
+    </div>
+
+    <div class="form-group">
+      <label for="dealer-password">Password</label>
+      <input type="password" id="dealer-password" placeholder="Enter password" required />
+    </div>
+
+    <button type="submit" class="login-btn">Login as Dealer</button>
+  </form>
+
+  <div class="role-info">Manage products & sales</div>
+
+  <button
+    type="button"
+    class="create-btn"
+    onclick="window.location.href='dealer-register.html'">
+    Create Dealer Account
+  </button>
+</div>
+
 
 
       </div>

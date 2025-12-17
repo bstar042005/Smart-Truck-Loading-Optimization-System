@@ -108,6 +108,25 @@
       margin-top: 12px;
     }
 
+    .create-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 10px;
+    border: 2px solid #1e3c72;
+    background: transparent;
+    color: #1e3c72;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+.create-btn:hover {
+  background: #1e3c72;
+  color: #fff;
+}
+
+
     @media (max-width: 600px) {
       .dashboard {
         padding: 25px;
@@ -137,6 +156,12 @@
           <button type="submit" class="login-btn">Login as User</button>
         </form>
         <div class="role-info">Access personal dashboard</div>
+        <button 
+        class="create-btn" 
+        onclick="window.location.href='user-register.html'">
+        Create User Account
+</button>
+
       </div>
 
       <!-- Dealer Login -->
@@ -154,6 +179,13 @@
           <button type="submit" class="login-btn">Login as Dealer</button>
         </form>
         <div class="role-info">Manage products & sales</div>
+        <button 
+        class="create-btn" 
+        onclick="window.location.href='dealer-register.html'">
+        Create Dealer Account
+</button>
+
+
       </div>
 
     </div>

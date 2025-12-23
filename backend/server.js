@@ -9,6 +9,11 @@ connectDB();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/api/users", require("./routes/user"));
+app.use("/api/dealers", require("./routes/dealer"));
+app.use("/api/trucks", require("./routes/truck"));
+app.use("/api/shipments", require("./routes/shipment"));
+
 
 app.get("/", (req, res) => {
   res.send("Smart Truck Backend Running");

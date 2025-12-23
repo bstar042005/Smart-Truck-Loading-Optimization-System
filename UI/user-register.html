@@ -1,50 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Sign Up</title>
-    <link rel="stylesheet" href="css/signup.css">
-</head>
+<html>
+<head><title>User Register</title></head>
 <body>
 
-<div class="container">
-    <h2>Create New Account</h2>
-    <p class="subtitle">Register as Warehouse User</p>
+<h2>User Register</h2>
 
-    <!-- Email & OTP -->
-    <div class="row">
-        <input type="email" placeholder="Email ID" required>
-        <button class="otp-btn">Send OTP</button>
-    </div>
+<form id="registerForm">
+  <input id="name" placeholder="Name" required><br><br>
+  <input id="email" type="email" placeholder="Email" required><br><br>
+  <input id="mobile" placeholder="Mobile" required><br><br>
+  <input id="password" type="password" placeholder="Password" required><br><br>
+  <input id="city" placeholder="City"><br><br>
+  <input id="state" placeholder="State"><br><br>
+  <input id="country" placeholder="Country"><br><br>
+  <button type="submit">Register</button>
+</form>
 
-    <input type="text" placeholder="Enter OTP" required>
-
-    <!-- Personal Details -->
-    <input type="text" placeholder="Full Name" required>
-    <input type="tel" placeholder="Mobile Number" required>
-    <input type="date" placeholder="Date of Birth" required>
-
-    <!-- Address -->
-    <div class="row">
-        <input type="text" placeholder="City" required>
-        <input type="text" placeholder="Pin Code" required>
-    </div>
-
-    <div class="row">
-        <input type="text" placeholder="State" required>
-        <input type="text" placeholder="Country" required>
-    </div>
-
-    <!-- Password -->
-    <input type="password" placeholder="Password" required>
-    <input type="password" placeholder="Confirm Password" required>
-
-    <button class="submit-btn">Create Account</button>
-
-    <p class="login-link">
-        Already have an account? <a href="index.html">Login</a>
-    </p>
-</div>
-
+<script src="user-register.js"></script>
 </body>
 </html>

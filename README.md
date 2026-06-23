@@ -161,5 +161,5 @@ The Smart Truck Loading Optimization System helps organizations improve vehicle 
 
 ## Contributors
 
-- Bhavya Sharma
+- Bhavya Vaish
 - Rajyavardhan Singh Rathore

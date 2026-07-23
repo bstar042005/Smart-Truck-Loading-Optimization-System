@@ -19,4 +19,14 @@ router.get("/", async (req, res) => {
   res.json(trucks);
 });
 
+router.delete("/:id", async (req, res) => {
+
+    await Truck.findByIdAndDelete(req.params.id);
+
+    res.json({
+        message: "Truck deleted successfully"
+    });
+
+});
+
 module.exports = router;

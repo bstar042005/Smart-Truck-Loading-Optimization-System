@@ -16,10 +16,10 @@ export default function Landing() {
       <Features />
       <HowItWorks />
       <DashboardPreview />
-        <WhySmartLoad />
-        <About />
-        <CTA />
-        <Footer />
+      <WhySmartLoad />
+      <About />
+      <CTA />
+      <Footer />
     </div>
   );
 }

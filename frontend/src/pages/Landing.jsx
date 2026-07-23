@@ -3,6 +3,7 @@ import Hero from "../components/landing/Hero";
 import Features from "../components/landing/Features";
 import HowItWorks from "../components/landing/HowItWorks";
 import DashboardPreview from "../components/landing/DashboardPreview";
+import WhySmartLoad from "../components/landing/WhySmartLoad";
 
 export default function Landing() {
   return (

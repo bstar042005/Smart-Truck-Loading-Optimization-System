@@ -6,6 +6,7 @@ import DashboardPreview from "../components/landing/DashboardPreview";
 import WhySmartLoad from "../components/landing/WhySmartLoad";
 import About from "../components/landing/About";
 import CTA from "../components/landing/CTA";
+import Footer from "../components/layout/Footer";
 
 export default function Landing() {
   return (
@@ -14,6 +15,11 @@ export default function Landing() {
       <Hero />
       <Features />
       <HowItWorks />
+      <DashboardPreview />
+        <WhySmartLoad />
+        <About />
+        <CTA />
+        <Footer />
     </div>
   );
 }

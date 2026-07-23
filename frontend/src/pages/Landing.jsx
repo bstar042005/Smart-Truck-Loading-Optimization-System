@@ -4,6 +4,7 @@ import Features from "../components/landing/Features";
 import HowItWorks from "../components/landing/HowItWorks";
 import DashboardPreview from "../components/landing/DashboardPreview";
 import WhySmartLoad from "../components/landing/WhySmartLoad";
+import About from "../components/landing/About";
 
 export default function Landing() {
   return (

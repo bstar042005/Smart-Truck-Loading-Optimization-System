@@ -1,3 +1,5 @@
+import { Pencil, Trash2 } from "lucide-react";
+
 export default function TruckRow({ truck }) {
   const getStatusClass = (status) => {
     switch (status) {
@@ -16,7 +18,7 @@ export default function TruckRow({ truck }) {
   };
 
   return (
-    <tr className="border-b border-slate-700 hover:bg-slate-800 transition">
+    <tr className="border-b border-slate-700 transition hover:bg-slate-800">
       <td className="px-4 py-4">{truck.truckId}</td>
 
       <td className="px-4 py-4 font-medium">{truck.truckName}</td>
@@ -35,6 +37,24 @@ export default function TruckRow({ truck }) {
         >
           {truck.status}
         </span>
+      </td>
+
+      <td className="px-4 py-4">
+        <div className="flex items-center justify-center gap-3">
+          <button
+            className="rounded-lg p-2 text-blue-400 transition hover:bg-blue-500/20 hover:text-blue-300"
+            title="Edit Truck"
+          >
+            <Pencil size={18} />
+          </button>
+
+          <button
+            className="rounded-lg p-2 text-red-400 transition hover:bg-red-500/20 hover:text-red-300"
+            title="Delete Truck"
+          >
+            <Trash2 size={18} />
+          </button>
+        </div>
       </td>
     </tr>
   );

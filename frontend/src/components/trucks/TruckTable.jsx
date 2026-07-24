@@ -6,12 +6,13 @@ export default function TruckTable({ trucks }) {
       <table className="w-full text-left text-white">
         <thead className="bg-slate-800">
           <tr>
-            <th className="px-4 py-3">Truck ID</th>
-            <th className="px-4 py-3">Truck Name</th>
-            <th className="px-4 py-3">Type</th>
-            <th className="px-4 py-3">Capacity</th>
-            <th className="px-4 py-3">Route</th>
-            <th className="px-4 py-3">Status</th>
+            <th className="px-4 py-4">Truck ID</th>
+            <th className="px-4 py-4">Truck Name</th>
+            <th className="px-4 py-4">Type</th>
+            <th className="px-4 py-4">Capacity</th>
+            <th className="px-4 py-4">Route</th>
+            <th className="px-4 py-4">Status</th>
+            <th className="px-4 py-4 text-center">Actions</th>
           </tr>
         </thead>
 

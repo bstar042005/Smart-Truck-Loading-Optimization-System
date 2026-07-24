@@ -6,6 +6,7 @@ import {
   BarChart3,
   ShieldCheck,
   Route,
+  ArrowRight,
 } from "lucide-react";
 
 const features = [
@@ -13,37 +14,37 @@ const features = [
     icon: Brain,
     title: "AI Load Optimization",
     description:
-      "Automatically maximize truck space utilization using intelligent loading algorithms.",
+      "Automatically maximize truck space utilization using intelligent cargo placement algorithms.",
   },
   {
     icon: Truck,
     title: "Fleet Management",
     description:
-      "Manage trucks, drivers, capacity, and availability from one dashboard.",
+      "Manage trucks, drivers, routes, and capacity from a centralized dashboard.",
   },
   {
     icon: Package,
     title: "Shipment Tracking",
     description:
-      "Track shipments in real time from dispatch to successful delivery.",
+      "Track every shipment in real time from dispatch to final delivery.",
   },
   {
     icon: BarChart3,
     title: "Analytics Dashboard",
     description:
-      "Monitor utilization, costs, deliveries, and operational performance.",
+      "Gain insights into fleet utilization, cost savings, and operational performance.",
   },
   {
     icon: ShieldCheck,
-    title: "Secure Platform",
+    title: "Enterprise Security",
     description:
-      "Role-based authentication with secure APIs and protected business data.",
+      "Secure authentication, role-based access, and protected business data.",
   },
   {
     icon: Route,
     title: "Smart Route Planning",
     description:
-      "Optimize delivery routes to reduce travel time and transportation costs.",
+      "Reduce fuel costs and delivery time with intelligent route optimization.",
   },
 ];
 
@@ -51,33 +52,36 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="bg-[#0B1220] py-24"
+      className="bg-gradient-to-b from-white to-[#F8FAFC] py-28"
     >
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading */}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-400">
+          <span className="rounded-full bg-blue-50 px-5 py-2 text-sm font-semibold text-blue-700">
             FEATURES
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold text-white">
-            Everything You Need To Optimize Logistics
+          <h2 className="mt-6 text-5xl font-bold leading-tight text-slate-900">
+            Everything You Need
+            <br />
+            to Optimize Logistics
           </h2>
 
-          <p className="mt-4 text-lg text-slate-400">
-            SmartLoad combines AI-powered optimization, fleet management,
-            shipment tracking, analytics, and security into one modern platform.
+          <p className="mt-8 text-lg leading-9 text-slate-600">
+            SmartLoad combines AI, fleet management, analytics, shipment
+            tracking, and intelligent routing into one modern logistics
+            platform.
           </p>
         </motion.div>
 
-        {/* Cards */}
+        {/* Feature Cards */}
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {features.map((feature, index) => {
@@ -89,30 +93,68 @@ export default function Features() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.5,
+                  duration: 0.6,
                   delay: index * 0.1,
                 }}
                 viewport={{ once: true }}
-                className="group rounded-3xl border border-white/10 bg-[#111827] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)]"
+                whileHover={{ y: -8 }}
+                className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:border-blue-500 hover:shadow-xl"
               >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600/15 transition group-hover:bg-blue-600">
+                {/* Icon */}
+
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 transition-all duration-300 group-hover:bg-blue-600">
                   <Icon
                     size={30}
-                    className="text-blue-400 group-hover:text-white"
+                    className="text-blue-600 transition-all duration-300 group-hover:text-white"
                   />
                 </div>
 
-                <h3 className="mb-3 text-2xl font-semibold text-white">
+                {/* Title */}
+
+                <h3 className="mb-4 text-2xl font-bold text-slate-900">
                   {feature.title}
                 </h3>
 
-                <p className="leading-7 text-slate-400">
+                {/* Description */}
+
+                <p className="leading-8 text-slate-600">
                   {feature.description}
                 </p>
+
+                {/* Learn More */}
+
+                <div className="mt-8 flex items-center gap-2 font-semibold text-blue-600 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                  Learn More
+                  <ArrowRight size={18} />
+                </div>
               </motion.div>
             );
           })}
         </div>
+
+        {/* Bottom Section */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-24 rounded-[32px] bg-blue-600 px-10 py-16 text-center text-white shadow-xl"
+        >
+          <h3 className="text-4xl font-bold">
+            Smarter Logistics Starts Here
+          </h3>
+
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-blue-100">
+            Optimize truck loading, reduce operational costs, improve fleet
+            efficiency, and transform your logistics operations with
+            AI-powered automation.
+          </p>
+
+          <button className="mt-10 rounded-xl bg-white px-8 py-4 font-semibold text-blue-600 transition hover:scale-105">
+            Explore the Platform
+          </button>
+        </motion.div>
       </div>
     </section>
   );

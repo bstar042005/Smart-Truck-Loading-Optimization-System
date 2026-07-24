@@ -6,77 +6,136 @@ const highlights = [
     icon: Target,
     title: "Our Mission",
     description:
-      "Reduce logistics costs by maximizing truck utilization using intelligent optimization.",
+      "Maximize truck utilization, reduce transportation costs, and eliminate empty cargo space through intelligent optimization.",
   },
   {
     icon: Lightbulb,
-    title: "AI Driven",
+    title: "AI Powered",
     description:
-      "Leverage smart algorithms to automate truck assignment and improve delivery efficiency.",
+      "Advanced algorithms analyze shipment dimensions and recommend the most efficient truck loading strategy.",
   },
   {
     icon: ShieldCheck,
     title: "Reliable Platform",
     description:
-      "Built with modern technologies to provide secure, scalable, and real-time logistics management.",
+      "Built with secure, scalable technologies for real-time fleet management and seamless logistics operations.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#0B1220] py-24">
+    <section
+      id="about"
+      className="bg-gradient-to-b from-[#FAFAF8] to-white py-28"
+    >
       <div className="mx-auto max-w-7xl px-6">
+        {/* Heading */}
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          transition={{ duration: 0.7 }}
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-400">
+          <span className="rounded-full bg-blue-50 px-5 py-2 text-sm font-semibold text-blue-700">
             ABOUT SMARTLOAD
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold text-white">
-            Smarter Logistics for Modern Businesses
+          <h2 className="mt-6 text-5xl font-bold leading-tight text-slate-900">
+            Smarter Logistics
+            <br />
+            for Modern Businesses
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-slate-400">
-            SmartLoad is an AI-powered truck loading optimization platform
-            designed to reduce transportation costs, improve fleet utilization,
-            and simplify logistics operations through intelligent automation.
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-9 text-slate-600">
+            SmartLoad is an AI-powered logistics platform that helps companies
+            optimize truck loading, reduce transportation costs, and improve
+            fleet efficiency using intelligent automation.
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        {/* Cards */}
+
+        <div className="grid gap-8 lg:grid-cols-3">
           {highlights.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                }}
                 viewport={{ once: true }}
-                className="rounded-3xl border border-white/10 bg-[#111827] p-8 transition hover:border-blue-500/40"
+                whileHover={{
+                  y: -8,
+                }}
+                className="group rounded-3xl border border-gray-200 bg-white p-10 shadow-sm transition-all duration-300 hover:border-blue-500 hover:shadow-2xl"
               >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600/15">
-                  <Icon className="text-blue-400" />
+                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 transition group-hover:bg-blue-600">
+                  <Icon
+                    size={30}
+                    className="text-blue-600 transition group-hover:text-white"
+                  />
                 </div>
 
-                <h3 className="mb-3 text-2xl font-semibold text-white">
+                <h3 className="mb-4 text-2xl font-bold text-slate-900">
                   {item.title}
                 </h3>
 
-                <p className="leading-7 text-slate-400">
+                <p className="leading-8 text-slate-600">
                   {item.description}
                 </p>
+
+                <div className="mt-8 h-1 w-14 rounded-full bg-blue-600 transition-all duration-300 group-hover:w-24"></div>
               </motion.div>
             );
           })}
         </div>
 
+        {/* Bottom Stats */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-24 rounded-[32px] bg-slate-900 px-10 py-14"
+        >
+          <div className="grid gap-10 text-center md:grid-cols-4">
+            <div>
+              <h3 className="text-5xl font-bold text-blue-500">98%</h3>
+              <p className="mt-3 text-slate-300">
+                Truck Space Utilization
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-5xl font-bold text-blue-500">2500+</h3>
+              <p className="mt-3 text-slate-300">
+                Shipments Optimized
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-5xl font-bold text-blue-500">30%</h3>
+              <p className="mt-3 text-slate-300">
+                Cost Reduction
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-5xl font-bold text-blue-500">24/7</h3>
+              <p className="mt-3 text-slate-300">
+                System Availability
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

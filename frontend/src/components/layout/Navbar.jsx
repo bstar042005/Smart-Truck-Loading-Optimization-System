@@ -16,15 +16,16 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 w-full z-50 border-b border-white/5 bg-[#0B1220]/80 backdrop-blur-xl"
+      className="fixed top-0 left-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-md"
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <Truck className="h-7 w-7 text-blue-500" />
-          <span className="text-2xl font-bold text-white">
-            Smart<span className="text-blue-500">Load</span>
+          <Truck className="h-7 w-7 text-blue-600" />
+
+          <span className="text-2xl font-bold text-slate-900">
+            Smart
+            <span className="text-blue-600">Load</span>
           </span>
         </a>
 
@@ -34,7 +35,7 @@ export default function Navbar() {
             <a
               key={item.name}
               href={item.href}
-              className="text-gray-400 transition hover:text-white"
+              className="font-medium text-slate-600 transition hover:text-blue-600"
             >
               {item.name}
             </a>
@@ -43,19 +44,19 @@ export default function Navbar() {
 
         {/* Desktop Buttons */}
         <div className="hidden items-center gap-4 md:flex">
-          <button className="rounded-xl border border-white/10 px-5 py-2.5 text-gray-300 transition hover:border-blue-500 hover:text-white">
+          <button className="rounded-xl border border-gray-300 bg-white px-5 py-2.5 font-medium text-slate-700 transition hover:border-blue-600 hover:text-blue-600">
             Sign In
           </button>
 
-          <button className="rounded-xl bg-blue-600 px-5 py-2.5 font-semibold text-white transition hover:bg-blue-700">
+          <button className="rounded-xl bg-blue-600 px-6 py-2.5 font-semibold text-white shadow-md transition hover:bg-blue-700">
             Get Started
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white md:hidden"
+          className="text-slate-700 md:hidden"
         >
           {isOpen ? <X size={30} /> : <Menu size={30} />}
         </button>
@@ -66,28 +67,26 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="border-t border-white/5 bg-[#111827] md:hidden"
+          className="border-t border-gray-200 bg-white md:hidden"
         >
           <div className="flex flex-col px-6 py-5">
-
             {navLinks.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="py-3 text-gray-300 hover:text-white"
+                className="py-3 text-slate-700 transition hover:text-blue-600"
               >
                 {item.name}
               </a>
             ))}
 
-            <button className="mt-4 rounded-lg border border-white/10 py-3 text-white">
+            <button className="mt-4 rounded-xl border border-gray-300 py-3 text-slate-700">
               Sign In
             </button>
 
-            <button className="mt-3 rounded-lg bg-blue-600 py-3 text-white">
+            <button className="mt-3 rounded-xl bg-blue-600 py-3 font-semibold text-white">
               Get Started
             </button>
-
           </div>
         </motion.div>
       )}

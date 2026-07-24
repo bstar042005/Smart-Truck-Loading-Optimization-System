@@ -1,4 +1,5 @@
-import { Truck, Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Truck, Mail, ArrowUp } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -84,14 +85,14 @@ export default function Footer() {
                   href="#"
                   className="rounded-xl border border-white/10 p-3 transition hover:border-blue-500 hover:bg-blue-500/10"
                 >
-                  <Github size={20} className="text-white" />
+                  <FaGithub size={20} className="text-white" />
                 </a>
 
                 <a
                   href="#"
                   className="rounded-xl border border-white/10 p-3 transition hover:border-blue-500 hover:bg-blue-500/10"
                 >
-                  <Linkedin size={20} className="text-white" />
+                  <FaLinkedin size={20} className="text-white" />
                 </a>
 
               </div>

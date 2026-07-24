@@ -1,7 +1,5 @@
-import AppRoutes from "./routes/AppRoutes";
+import Landing from "./pages/Landing";
 
-function App() {
-  return <AppRoutes />;
+export default function App() {
+  return <Landing />;
 }
-
-export default App;

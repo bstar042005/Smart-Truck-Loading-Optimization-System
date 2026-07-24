@@ -4,6 +4,7 @@ import {
   Brain,
   Truck,
   MapPinned,
+  ArrowRight,
 } from "lucide-react";
 
 const steps = [
@@ -11,25 +12,25 @@ const steps = [
     icon: Upload,
     title: "Upload Shipment",
     description:
-      "Customers submit shipment details including dimensions, weight, destination, and deadline.",
+      "Enter shipment details including dimensions, weight, destination, and delivery deadline.",
   },
   {
     icon: Brain,
     title: "AI Optimization",
     description:
-      "SmartLoad analyzes all available trucks and selects the best fit using optimization algorithms.",
+      "SmartLoad analyzes available trucks and recommends the most efficient loading strategy.",
   },
   {
     icon: Truck,
     title: "Truck Assignment",
     description:
-      "The selected truck is assigned automatically while updating available capacity in real time.",
+      "The best truck is automatically assigned while updating capacity in real time.",
   },
   {
     icon: MapPinned,
-    title: "Live Tracking",
+    title: "Track Delivery",
     description:
-      "Track shipment progress, truck status, and delivery updates from a centralized dashboard.",
+      "Monitor truck location, shipment progress, and delivery status from one dashboard.",
   },
 ];
 
@@ -37,32 +38,38 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-[#08111f] py-24"
+      className="bg-[#F8FAFC] py-28"
     >
       <div className="mx-auto max-w-7xl px-6">
 
+        {/* Heading */}
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          className="mx-auto mb-24 max-w-3xl text-center"
         >
-          <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-400">
-            WORKFLOW
+          <span className="rounded-full bg-blue-50 px-5 py-2 text-sm font-semibold text-blue-700">
+            HOW IT WORKS
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold text-white">
-            How SmartLoad Works
+          <h2 className="mt-6 text-5xl font-bold text-slate-900">
+            Smart Logistics
+            <br />
+            in Four Simple Steps
           </h2>
 
-          <p className="mt-4 text-lg text-slate-400">
-            From shipment creation to delivery tracking, SmartLoad automates
-            every step of the logistics workflow.
+          <p className="mt-8 text-lg leading-9 text-slate-600">
+            From shipment creation to final delivery, SmartLoad automates the
+            complete logistics workflow using intelligent optimization.
           </p>
         </motion.div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        {/* Workflow */}
+
+        <div className="grid gap-12 lg:grid-cols-4">
           {steps.map((step, index) => {
             const Icon = step.icon;
 
@@ -72,31 +79,81 @@ export default function HowItWorks() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.5,
+                  duration: 0.6,
                   delay: index * 0.15,
                 }}
                 viewport={{ once: true }}
-                className="relative rounded-3xl border border-white/10 bg-[#111827] p-8 text-center"
+                className="relative text-center"
               >
-                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600/15">
-                  <Icon className="text-blue-400" size={30} />
+                {/* Step Number */}
+
+                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                  {index + 1}
                 </div>
 
-                <h3 className="mb-3 text-xl font-semibold text-white">
+                {/* Icon */}
+
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-blue-100 bg-white shadow-md">
+                  <Icon
+                    size={34}
+                    className="text-blue-600"
+                  />
+                </div>
+
+                {/* Title */}
+
+                <h3 className="mb-4 text-2xl font-bold text-slate-900">
                   {step.title}
                 </h3>
 
-                <p className="text-slate-400 leading-7">
+                {/* Description */}
+
+                <p className="leading-8 text-slate-600">
                   {step.description}
                 </p>
 
+                {/* Arrow */}
+
                 {index !== steps.length - 1 && (
-                  <div className="absolute top-1/2 -right-5 hidden h-[2px] w-10 bg-blue-500 lg:block"></div>
+                  <div className="absolute left-[88%] top-[62px] hidden lg:block">
+                    <ArrowRight
+                      size={28}
+                      className="text-blue-500"
+                    />
+                  </div>
                 )}
               </motion.div>
             );
           })}
         </div>
+
+        {/* Bottom CTA */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-24 rounded-[32px] border border-blue-100 bg-white p-12 shadow-lg"
+        >
+          <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
+            <div>
+              <h3 className="text-3xl font-bold text-slate-900">
+                Ready to Transform Your Logistics?
+              </h3>
+
+              <p className="mt-4 max-w-2xl text-lg text-slate-600">
+                Join businesses using SmartLoad to reduce transportation costs,
+                improve truck utilization, and automate logistics planning.
+              </p>
+            </div>
+
+            <button className="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition hover:bg-blue-700">
+              Get Started
+            </button>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -3,7 +3,10 @@ import { useState } from "react";
 import InputField from "../forms/InputField";
 import PrimaryButton from "../forms/PrimaryButton";
 
-export default function TruckForm() {
+export default function TruckForm({
+  onSubmit,
+  onCancel,
+}) {
   const [form, setForm] = useState({
     truckId: "",
     truckName: "",
@@ -24,7 +27,13 @@ export default function TruckForm() {
   };
 
   return (
-    <form className="space-y-5">
+    <form
+     className="space-y-5"
+     onSubmit={(e) => {
+     e.preventDefault();
+     onSubmit(form);
+  }}
+>
       <div className="grid gap-5 md:grid-cols-2">
         <InputField
           label="Truck ID"
@@ -111,6 +120,7 @@ export default function TruckForm() {
       <div className="flex justify-end gap-4">
         <button
           type="button"
+          onClick={onCancel}
           className="rounded-xl border border-slate-600 px-6 py-3 text-white transition hover:bg-slate-700"
         >
           Cancel

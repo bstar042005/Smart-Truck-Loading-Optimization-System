@@ -5,7 +5,7 @@ import TruckForm from "../components/trucks/TruckForm";
 import Modal from "../components/ui/Modal";
 
 export default function Trucks() {
-  const [trucks] = useState([
+  const [trucks, setTrucks] = useState([
     {
       _id: "1",
       truckId: "TR101",
@@ -36,6 +36,17 @@ export default function Trucks() {
   ]);
 
   const [openModal, setOpenModal] = useState(false);
+  const handleAddTruck = (newTruck) => {
+  setTrucks((prev) => [
+    ...prev,
+    {
+      _id: Date.now().toString(),
+      ...newTruck,
+    },
+  ]);
+
+  setOpenModal(false);
+  };
 
   return (
     <div className="p-6">
@@ -59,7 +70,10 @@ export default function Trucks() {
         onClose={() => setOpenModal(false)}
         title="Add New Truck"
       >
-        <TruckForm />
+        <TruckForm
+            onSubmit={handleAddTruck}
+            onCancel={() => setOpenModal(false)}
+        />
       </Modal>
     </div>
   );

@@ -1,4 +1,6 @@
+import { Mail } from "lucide-react";
 import AuthLayout from "../../components/auth/AuthLayout";
+import InputField from "../../components/forms/InputField";
 
 export default function Login() {
   return (
@@ -6,9 +8,13 @@ export default function Login() {
       title="Welcome Back"
       subtitle="Sign in to continue using SmartLoad."
     >
-      <div className="text-center text-slate-300">
-        Login Form Coming Soon...
-      </div>
+      <form className="space-y-6">
+        <InputField
+          label="Email Address"
+          placeholder="Enter your email"
+          icon={Mail}
+        />
+      </form>
     </AuthLayout>
   );
 }

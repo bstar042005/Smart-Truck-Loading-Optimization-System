@@ -1,7 +1,14 @@
-export default function Register(){
+import AuthLayout from "../../components/auth/AuthLayout";
+
+export default function Register() {
   return (
-    <h1 className="text-white text-4xl p-10">
-      Login Page
-    </h1>
+    <AuthLayout
+      title="Create Account"
+      subtitle="Create your SmartLoad account."
+    >
+      <div className="text-center text-slate-300">
+        Register Form Coming Soon...
+      </div>
+    </AuthLayout>
   );
 }

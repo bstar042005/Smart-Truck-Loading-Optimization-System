@@ -1,5 +1,5 @@
-import Landing from "./pages/Landing";
+import AppRoutes from "./routes/AppRoutes";
 
 export default function App() {
-  return <Landing />;
+  return <AppRoutes />;
 }

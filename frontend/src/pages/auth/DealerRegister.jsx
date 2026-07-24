@@ -1,7 +1,14 @@
-export default function DealerRegister(){
+import AuthLayout from "../../components/auth/AuthLayout";
+
+export default function DealerRegister() {
   return (
-    <h1 className="text-white text-4xl p-10">
-      Login Page
-    </h1>
+    <AuthLayout
+      title="Dealer Registration"
+      subtitle="Create your dealer account."
+    >
+      <div className="text-center text-slate-300">
+        Dealer Register Form Coming Soon...
+      </div>
+    </AuthLayout>
   );
 }

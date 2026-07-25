@@ -10,6 +10,7 @@ import DealerDashboard from "../pages/DealerDashboard";
 
 import Dashboard from "../pages/Dashboard";
 import Trucks from "../pages/Trucks";
+import Shipments from "../pages/Shipments";
 
 export default function AppRoutes() {
   return (
@@ -29,6 +30,7 @@ export default function AppRoutes() {
 
       {/* Truck Management */}
       <Route path="/dealer/trucks" element={<Trucks />} />
+      <Route path="/dealer/shipments" element={<Shipments />}/>
     </Routes>
   );
 }

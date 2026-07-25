@@ -22,7 +22,7 @@ const menuItems = [
   },
   {
     name: "Shipments",
-    path: "/shipments",
+    path: "/dealer/shipments",
     icon: Package,
   },
   {
@@ -70,7 +70,7 @@ export default function Sidebar() {
               }
             >
               <Icon size={20} />
-              {item.name}
+              <span>{item.name}</span>
             </NavLink>
           );
         })}
@@ -78,11 +78,9 @@ export default function Sidebar() {
 
       {/* Logout */}
       <div className="border-t border-slate-200 p-4">
-        <button
-          className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-red-50 hover:text-red-600"
-        >
+        <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-red-50 hover:text-red-600">
           <LogOut size={20} />
-          Logout
+          <span>Logout</span>
         </button>
       </div>
     </aside>

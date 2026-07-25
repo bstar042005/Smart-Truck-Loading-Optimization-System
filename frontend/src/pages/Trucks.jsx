@@ -1,10 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+
 import DashboardLayout from "../components/dashboard/DashboardLayout";
 import TruckTable from "../components/trucks/TruckTable";
 import TruckModal from "../components/trucks/TruckModal";
 
+import {
+  getTrucks,
+  addTruck,
+} from "../services/truckService";
+
 export default function Trucks() {
   const [openModal, setOpenModal] = useState(false);
+  const [trucks, setTrucks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch all trucks
+  const fetchTrucks = async () => {
+    try {
+      setLoading(true);
+
+      const data = await getTrucks();
+
+      setTrucks(data);
+    } catch (err) {
+      console.error(err);
+
+      toast.error("Failed to load trucks.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTrucks();
+  }, []);
+
+  // Add Truck
+  const handleAddTruck = async (truckData) => {
+    try {
+      await addTruck(truckData);
+
+      toast.success("Truck added successfully!");
+
+      setOpenModal(false);
+
+      fetchTrucks();
+    } catch (err) {
+      console.error(err);
+
+      toast.error(
+        err.response?.data?.message || "Failed to add truck."
+      );
+    }
+  };
+
+  if (loading) {
+    return (
+      <DashboardLayout>
+        <div className="flex h-[70vh] items-center justify-center">
+          <h2 className="text-xl font-semibold text-slate-600">
+            Loading Trucks...
+          </h2>
+        </div>
+      </DashboardLayout>
+    );
+  }
 
   return (
     <DashboardLayout>
@@ -32,21 +93,23 @@ export default function Trucks() {
         {/* Search & Filter */}
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <p className="text-slate-500">
-            Search and filter controls will go here.
+            Search and filter controls will be added here.
           </p>
         </div>
 
         {/* Truck Table */}
-        <TruckTable />
+        <TruckTable
+          trucks={trucks}
+          onView={(truck) => console.log("View:", truck)}
+          onEdit={(truck) => console.log("Edit:", truck)}
+          onDelete={(truck) => console.log("Delete:", truck)}
+        />
 
-        {/* Modal */}
+        {/* Add Truck Modal */}
         <TruckModal
           open={openModal}
           onClose={() => setOpenModal(false)}
-          onSubmit={(truck) => {
-            console.log(truck);
-            setOpenModal(false);
-          }}
+          onSubmit={handleAddTruck}
         />
       </div>
     </DashboardLayout>

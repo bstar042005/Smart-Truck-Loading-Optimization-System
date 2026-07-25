@@ -28,7 +28,7 @@ export default function AppRoutes() {
       <Route path="/dealer/dashboard" element={<DealerDashboard />}/>
 
       {/* Truck Management */}
-      <Route path="/trucks" element={<Trucks />} />
+      <Route path="/dealer/trucks" element={<Trucks />} />
     </Routes>
   );
 }

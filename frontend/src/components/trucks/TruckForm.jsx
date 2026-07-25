@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { getDealer } from "../../utils/storage";
 
-export default function TruckForm({ onSubmit, onCancel }) {
-  const [form, setForm] = useState({
+export default function TruckForm({ truck,onSubmit, onCancel }) {
+  const [form, setForm] = useState(
+  truck || {
     truckId: "",
     truckName: "",
     type: "Mini Truck",
@@ -12,8 +13,8 @@ export default function TruckForm({ onSubmit, onCancel }) {
     capacity: "",
     route: "",
     status: "Available",
-  });
-
+  }
+  );
   const handleChange = (e) => {
     setForm((prev) => ({
       ...prev,

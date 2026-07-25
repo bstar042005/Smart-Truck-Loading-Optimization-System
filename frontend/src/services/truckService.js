@@ -6,6 +6,12 @@ export const getTrucks = async () => {
   return res.data.trucks;
 };
 
+// Get single truck
+export const getTruckById = async (id) => {
+  const res = await api.get(`/trucks/${id}`);
+  return res.data.truck;
+};
+
 // Add truck
 export const addTruck = async (truckData) => {
   const res = await api.post("/trucks/add", truckData);
@@ -22,10 +28,4 @@ export const updateTruck = async (id, truckData) => {
 export const deleteTruck = async (id) => {
   const res = await api.delete(`/trucks/${id}`);
   return res.data;
-};
-
-// Get single truck
-export const getTruckById = async (id) => {
-  const res = await api.get(`/trucks/${id}`);
-  return res.data.truck;
 };

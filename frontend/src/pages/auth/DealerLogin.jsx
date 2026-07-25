@@ -1,14 +1,130 @@
+import { useState } from "react";
+import { Mail } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
 import AuthLayout from "../../components/auth/AuthLayout";
+import InputField from "../../components/forms/InputField";
+import PasswordField from "../../components/forms/PasswordField";
+import PrimaryButton from "../../components/forms/PrimaryButton";
+import Checkbox from "../../components/forms/Checkbox";
+
+import { saveDealer } from "../../utils/storage";
+
+// ...
+
+saveDealer(res.data.dealer);
+
+import api from "../../services/api";
 
 export default function DealerLogin() {
+  const navigate = useNavigate();
+
+  const [remember, setRemember] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setForm((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { email, password } = form;
+
+    if (!email || !password) {
+      return toast.error("Please fill all fields.");
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await api.post("/dealers/login", {
+        email,
+        password,
+      });
+
+      if (res.data.success) {
+        // We'll improve this later using a dedicated dealer storage helper
+        localStorage.setItem(
+          "dealer",
+          JSON.stringify(res.data.dealer)
+        );
+
+        toast.success(res.data.message);
+
+        navigate("/dealer/dashboard");
+      }
+    } catch (err) {
+      toast.error(
+        err.response?.data?.message || "Login failed."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <AuthLayout
       title="Dealer Login"
-      subtitle="Access your dealer dashboard."
+      subtitle="Sign in to manage your fleet and shipments."
     >
-      <div className="text-center text-slate-300">
-        Dealer Login Form Coming Soon...
-      </div>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <InputField
+          label="Email Address"
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          placeholder="Enter your email"
+          icon={Mail}
+        />
+
+        <PasswordField
+          label="Password"
+          name="password"
+          value={form.password}
+          onChange={handleChange}
+          placeholder="Enter your password"
+        />
+
+        <div className="flex items-center justify-between">
+          <Checkbox
+            label="Remember Me"
+            checked={remember}
+            onChange={(e) => setRemember(e.target.checked)}
+          />
+
+          <button
+            type="button"
+            className="text-sm text-blue-400 hover:text-blue-300"
+          >
+            Forgot Password?
+          </button>
+        </div>
+
+        <PrimaryButton loading={loading} type="submit">
+          Sign In
+        </PrimaryButton>
+
+        <p className="text-center text-sm text-slate-400">
+          Don't have a dealer account?{" "}
+          <Link
+            to="/dealer/register"
+            className="text-blue-400 hover:text-blue-300"
+          >
+            Register
+          </Link>
+        </p>
+      </form>
     </AuthLayout>
   );
 }

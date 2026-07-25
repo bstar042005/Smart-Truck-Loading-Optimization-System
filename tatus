@@ -1,0 +1,14 @@
+* [33m93f0f14[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat: redesign landing page with modern logistics UI
+* [33m616ac05[m feat: redesign landing page with modern responsive logistics interface
+* [33mf572f1c[m designed feature section into new look
+* [33ma69c3ae[m added dark glass effect on navbar
+* [33ma9ac500[m added new feature in navbar
+* [33m679ab34[m added image in hero section
+* [33m3779290[m feat: implement truck management UI with add truck functionality
+* [33m3f47db2[m feat: add reusable modal for truck management
+* [33m944d6d3[m feat: create truck form component
+* [33m6603f73[m feat: enhance truck table with status badges and action buttons
+* [33m61c7c13[m feat: add truck management table with status badges
+* [33mca04c3b[m feat: scaffold truck management components
+* [33m66c6fef[m feat: build dashboard UI with stats, charts and quick actions
+* [33m2fc0122[m feat: create dashboard layout with sidebar and topbar

@@ -6,6 +6,7 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import DealerLogin from "../pages/auth/DealerLogin";
 import DealerRegister from "../pages/auth/DealerRegister";
+import DealerDashboard from "../pages/DealerDashboard";
 
 import Dashboard from "../pages/Dashboard";
 import Trucks from "../pages/Trucks";
@@ -24,6 +25,7 @@ export default function AppRoutes() {
 
       {/* Dashboard */}
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dealer/dashboard" element={<DealerDashboard />}/>
 
       {/* Truck Management */}
       <Route path="/trucks" element={<Trucks />} />

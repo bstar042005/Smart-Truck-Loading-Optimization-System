@@ -3,13 +3,36 @@ const User = require("../models/User");
 
 const router = express.Router();
 
-// Register
+// ==================== Register ====================
 router.post("/register", async (req, res) => {
   try {
-    const user = new User(req.body);
+    const { name, email, password } = req.body;
+
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill all required fields",
+      });
+    }
+
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: "Email already registered",
+      });
+    }
+
+    const user = new User({
+      name,
+      email,
+      password,
+    });
+
     await user.save();
 
-    res.json({
+    res.status(201).json({
       success: true,
       message: "User registered successfully",
     });
@@ -21,12 +44,22 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Login
+// ==================== Login ====================
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email, password });
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required",
+      });
+    }
+
+    const user = await User.findOne({
+      email,
+      password,
+    }).select("-password");
 
     if (!user) {
       return res.status(401).json({

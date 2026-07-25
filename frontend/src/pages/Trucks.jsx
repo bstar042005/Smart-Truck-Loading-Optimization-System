@@ -1,80 +1,54 @@
 import { useState } from "react";
-
+import DashboardLayout from "../components/dashboard/DashboardLayout";
 import TruckTable from "../components/trucks/TruckTable";
-import TruckForm from "../components/trucks/TruckForm";
-import Modal from "../components/ui/Modal";
+import TruckModal from "../components/trucks/TruckModal";
 
 export default function Trucks() {
-  const [trucks, setTrucks] = useState([
-    {
-      _id: "1",
-      truckId: "TR101",
-      truckName: "Tata 407",
-      type: "Mini Truck",
-      capacity: 3500,
-      route: "Delhi",
-      status: "Available",
-    },
-    {
-      _id: "2",
-      truckId: "TR102",
-      truckName: "Ashok Leyland",
-      type: "Container",
-      capacity: 7000,
-      route: "Jaipur",
-      status: "Busy",
-    },
-    {
-      _id: "3",
-      truckId: "TR103",
-      truckName: "Eicher Pro",
-      type: "Trailer",
-      capacity: 12000,
-      route: "Mumbai",
-      status: "Maintenance",
-    },
-  ]);
-
   const [openModal, setOpenModal] = useState(false);
-  const handleAddTruck = (newTruck) => {
-  setTrucks((prev) => [
-    ...prev,
-    {
-      _id: Date.now().toString(),
-      ...newTruck,
-    },
-  ]);
-
-  setOpenModal(false);
-  };
 
   return (
-    <div className="p-6">
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-white">
-          Truck Management
-        </h1>
+    <DashboardLayout>
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-slate-900">
+              Truck Management
+            </h1>
 
-        <button
-          onClick={() => setOpenModal(true)}
-          className="rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white transition hover:bg-blue-700"
-        >
-          + Add Truck
-        </button>
-      </div>
+            <p className="mt-2 text-slate-500">
+              Manage your fleet and monitor truck availability.
+            </p>
+          </div>
 
-      <TruckTable trucks={trucks} />
+          <button
+            onClick={() => setOpenModal(true)}
+            className="rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700"
+          >
+            + Add Truck
+          </button>
+        </div>
 
-      <Modal
-        isOpen={openModal}
-        onClose={() => setOpenModal(false)}
-        title="Add New Truck"
-      >
-        <TruckForm
-            onSubmit={handleAddTruck}
-            onCancel={() => setOpenModal(false)}
+        {/* Search & Filter */}
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <p className="text-slate-500">
+            Search and filter controls will go here.
+          </p>
+        </div>
+
+        {/* Truck Table */}
+        <TruckTable />
+
+        {/* Modal */}
+        <TruckModal
+          open={openModal}
+          onClose={() => setOpenModal(false)}
+          onSubmit={(truck) => {
+            console.log(truck);
+            setOpenModal(false);
+          }}
         />
-      </Modal>
-    </div>
+      </div>
+    </DashboardLayout>
   );
 }

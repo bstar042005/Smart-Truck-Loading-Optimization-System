@@ -9,13 +9,8 @@ import PasswordField from "../../components/forms/PasswordField";
 import PrimaryButton from "../../components/forms/PrimaryButton";
 import Checkbox from "../../components/forms/Checkbox";
 
-import { saveDealer } from "../../utils/storage";
-
-// ...
-
-saveDealer(res.data.dealer);
-
 import api from "../../services/api";
+import { saveDealer } from "../../utils/storage";
 
 export default function DealerLogin() {
   const navigate = useNavigate();
@@ -53,13 +48,10 @@ export default function DealerLogin() {
       });
 
       if (res.data.success) {
-        // We'll improve this later using a dedicated dealer storage helper
-        localStorage.setItem(
-          "dealer",
-          JSON.stringify(res.data.dealer)
-        );
+        // Save dealer information in localStorage
+        saveDealer(res.data.dealer);
 
-        toast.success(res.data.message);
+        toast.success(res.data.message || "Login Successful!");
 
         navigate("/dealer/dashboard");
       }

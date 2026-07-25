@@ -1,5 +1,5 @@
-import TruckForm from "./TruckForm";
 import { X } from "lucide-react";
+import TruckForm from "./TruckForm";
 
 export default function TruckModal({
   open,
@@ -10,10 +10,8 @@ export default function TruckModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-
       <div className="relative w-full max-w-4xl rounded-3xl bg-white p-8 shadow-2xl">
 
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute right-5 top-5 rounded-full p-2 hover:bg-slate-100"
@@ -29,7 +27,6 @@ export default function TruckModal({
           onSubmit={onSubmit}
           onCancel={onClose}
         />
-
       </div>
     </div>
   );

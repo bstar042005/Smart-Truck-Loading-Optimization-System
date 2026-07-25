@@ -22,3 +22,4 @@ export const getDealer = () => {
 export const removeDealer = () => {
   localStorage.removeItem("dealer");
 };
+

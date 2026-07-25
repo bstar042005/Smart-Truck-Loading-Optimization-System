@@ -1,12 +1,12 @@
-const express = require("express");
+import express from "express";
 
-const {
+import {
   createShipment,
   getShipments,
   getShipmentById,
   updateShipment,
   deleteShipment,
-} = require("../controllers/shipmentController");
+} from "../controllers/shipmentController.js";
 
 const router = express.Router();
 
@@ -25,4 +25,4 @@ router.put("/:id", updateShipment);
 // Delete Shipment
 router.delete("/:id", deleteShipment);
 
-module.exports = router;
+export default router;

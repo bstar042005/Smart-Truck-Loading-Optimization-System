@@ -8,17 +8,18 @@ connectDB();
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use("/api/users", require("./routes/user"));
 app.use("/api/dealers", require("./routes/dealer"));
-app.use("/api/shipments", require("./routes/shipment"));
 app.use("/api/trucks", require("./routes/truck"));
+app.use("/api/shipments", require("./routes/shipment"));
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
